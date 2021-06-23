@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Spinner from "../General/Spinner";
 import { connect } from 'react-redux';
 import * as usuariosActions from '../../actions/usuariosActions' //Importamos *'todo' como usuariosActions
 
@@ -29,7 +29,10 @@ class Usuarios extends Component {
   render() {
     return(
       <div>
-        <table className="tabla">
+        { this.props.cargando ? (
+          <Spinner />
+        ) : (
+          <table className="tabla">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -39,6 +42,7 @@ class Usuarios extends Component {
           </thead>
           <tbody>{this.ponerFilas()}</tbody>
         </table>
+        )}
       </div>
     );
   }
