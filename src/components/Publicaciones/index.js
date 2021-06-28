@@ -10,12 +10,20 @@ const { traerPorUsuario: publicacionesTraerPorUsuario} = publicacionesActions;
 class Publicaciones extends Component {
 
   async componentDidMount() {
+    const {
+      usuariosTraerTodos,
+      publicacionesTraerPorUsuario,
+      match: { params: { key }}
+    } = this.props;
+
     //Si no tiene usuarios, primero los cargo y cuando termina cargo las publicaciones
-    if (!this.props.usuariosReducer.usuarios.lenght) {
-     await this.props.usuariosTraerTodos();
+    if (!this.props.usuariosReducer.usuarios.length) {
+     await usuariosTraerTodos();
     }
-    const key = this.props.match.params.key;
-    this.props.publicacionesTraerPorUsuario(key);
+    // const key = this.props.match.params.key; Lo saque de la destructuracion
+    if (!('publicaciones_key' in this.props.usuariosReducer.usuarios[key])) {
+      publicacionesTraerPorUsuario(key);
+    }
   }
   render() {
     console.log(this.props);
