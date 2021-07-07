@@ -1,36 +1,73 @@
-import axios from 'axios';
-import { TRAER_TODAS, CARGANDO, ERROR } from '../types/tareasTypes';
+import axios from "axios";
+import { TRAER_TODAS, CARGANDO, ERROR } from "../types/tareasTypes";
 
-export const  traerTodas = () => async (dispatch) => {
+export const traerTodas = () => async (dispatch) => {
+  dispatch({
+    type: CARGANDO,
+  });
+  try {
+    const respuesta = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos"
+    ); // tarea: To Do
+
+    // respuesta es un arreglo de objetos no separados por usuario
+    // quiero crear un nuevo objeto separado por las tareas de cada usuario
+    const tareas = {};
+    respuesta.data.map(
+      (tar) =>
+        (tareas[tar.userId] = {
+          ...tareas[tar.userId],
+          [tar.id]: {
+            ...tar,
+          },
+        })
+    );
+
     dispatch({
-        type: CARGANDO
+      type: TRAER_TODAS,
+      payload: tareas,
     });
-    try {
-        const respuesta = await axios.get('https://jsonplaceholder.typicode.com/todos'); // tarea: To Do
+  } catch (error) {
+    console.log(error.message);
+    dispatch({
+      type: ERROR,
+      payload: `Informacion de tareas no disponible.`,
+    });
+  }
+};
 
-        // respuesta es un arreglo de objetos no separados por usuario
-        // quiero crear un nuevo objeto separado por las tareas de cada usuario
-        const tareas = {};
-        respuesta.data.map( (tar) => (
-            tareas[tar.userId] = {
-                ...tareas[tar.userId],
-                [tar.id]: {
-                    ...tar
-                }
-            }
-        ));
+export const cambioUsuarioId = (usuario_id) => (dispatch) => {
+  dispatch({
+    type: "cambio_usuario_id",
+    payload: usuario_id,
+  });
+};
 
-        dispatch({
-            type: TRAER_TODAS,
-            payload: tareas,
-    
-        })
-    } catch (error) {
-        console.log(error.message);
-        dispatch({
-            type: ERROR,
-            payload: `Informacion de tareas no disponible.`,
-        })
-    }
+export const cambioTitulo = (titulo) => (dispatch) => {
+  dispatch({
+    type: "cambio_titulo",
+    payload: titulo,
+  });
+};
 
-}
+export const agregar = (nueva_tarea) => async (dispatch) => {
+  dispatch({
+    type: CARGANDO,
+  });
+  try {
+    const respuesta = await axios.post(
+      "https://jsonplaceholder.typicode.com/todos",
+      nueva_tarea
+    );
+    console.log(respuesta.data);
+    dispatch({
+        type: 'agregada',
+    })
+  } catch (error) {
+      console.log(error.message);
+      dispatch({
+        type: ERROR,
+        payload: 'Intente mas tarde'
+    })
+  }
+};
