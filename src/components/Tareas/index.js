@@ -7,7 +7,7 @@ import Fatal from '../General/Fatal';
 import * as tareasActions from "../../actions/tareasActions";
 
 //Lo destructuro
-const { traerTodas } = tareasActions;
+const { traerTodas, cambioCheck } = tareasActions;
 
 class Tareas extends Component {
     componentDidMount() {
@@ -36,22 +36,33 @@ class Tareas extends Component {
         ))
     }
     ponerTareas = (usu_id) => {
-        const { tareas } = this.props;
+        const { tareas, cambioCheck } = this.props;
         const por_usuario = {
             ...tareas[usu_id]
         };
         
         return Object.keys(por_usuario).map((tar_id) =>(
             <div key={tar_id}>
-            <input type='checkbox' defaultChecked={por_usuario[tar_id].completed} />
+            <input
+             type='checkbox' 
+             defaultChecked={por_usuario[tar_id].completed}
+             onChange={ () => cambioCheck(usu_id,tar_id)}
+            />
             {
                 por_usuario[tar_id].title
             }
+            <button className='m_left'>
+                <Link to={`/tareas/guardar/${usu_id}/${tar_id}`}>
+                    Editar
+                </Link>
+            </button>
+            <button className='m_left'>
+                Eliminar
+            </button>
             </div>
         ));
     };
     render() {
-        console.log(this.props);
         return (
             <div>
                 <button>
@@ -69,6 +80,7 @@ const mapStateToProps = ({tareasReducer}) => tareasReducer;
 
 const mapDispatchToProps = {
   traerTodas,
+  cambioCheck,
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tareas);

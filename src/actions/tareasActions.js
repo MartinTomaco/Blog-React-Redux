@@ -1,5 +1,13 @@
 import axios from "axios";
-import { TRAER_TODAS, CARGANDO, ERROR } from "../types/tareasTypes";
+import { 
+    TRAER_TODAS, 
+    CARGANDO, 
+    ERROR, 
+    CAMBIO_USUARIO_ID, 
+    CAMBIO_TITULO, 
+    GUARDAR,
+    ACTUALIZAR
+} from "../types/tareasTypes";
 
 export const traerTodas = () => async (dispatch) => {
   dispatch({
@@ -38,14 +46,14 @@ export const traerTodas = () => async (dispatch) => {
 
 export const cambioUsuarioId = (usuario_id) => (dispatch) => {
   dispatch({
-    type: "cambio_usuario_id",
+    type: CAMBIO_USUARIO_ID,
     payload: usuario_id,
   });
 };
 
 export const cambioTitulo = (titulo) => (dispatch) => {
   dispatch({
-    type: "cambio_titulo",
+    type: CAMBIO_TITULO,
     payload: titulo,
   });
 };
@@ -61,7 +69,7 @@ export const agregar = (nueva_tarea) => async (dispatch) => {
     );
     console.log(respuesta.data);
     dispatch({
-        type: 'agregada',
+        type: GUARDAR,
     })
   } catch (error) {
       console.log(error.message);
@@ -71,3 +79,44 @@ export const agregar = (nueva_tarea) => async (dispatch) => {
     })
   }
 };
+
+export const editar = (tarea_editada) => async (dispatch) => {
+    dispatch({
+      type: CARGANDO,
+    });
+    try {
+      const respuesta = await axios.put(
+        `https://jsonplaceholder.typicode.com/todos/${tarea_editada.id}`,
+        tarea_editada
+      );
+      console.log(respuesta.data);
+      dispatch({
+          type: GUARDAR,
+      })
+    } catch (error) {
+        console.log(error.message);
+        dispatch({
+          type: ERROR,
+          payload: 'Intente mas tarde'
+      })
+    }
+  };
+
+  export const cambioCheck = (usu_id,tar_id) => (dispatch,getState) => {
+    const { tareas } = getState().tareasReducer;
+    const seleccionada = tareas[usu_id][tar_id];
+    const actualizadas = {
+        ...tareas
+    };
+    actualizadas[usu_id] = {
+        ...tareas[usu_id]
+    };
+    actualizadas[usu_id][tar_id] = {
+        ...tareas[usu_id][tar_id],
+        completed: !seleccionada.completed
+    };
+    dispatch({
+        type: ACTUALIZAR,
+        payload: actualizadas
+    })
+  }
