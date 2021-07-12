@@ -13,11 +13,14 @@ class Guardar extends Component {
             tareas,
             cambioUsuarioId,
             cambioTitulo,
+            limpiarFormulario,
         } = this.props;
         if(usu_id && tar_id) {
             const tarea = tareas[usu_id][tar_id];
             cambioUsuarioId(tarea.userId);
             cambioTitulo(tarea.title);
+        }else{
+          limpiarFormulario();
         }
     }
   cambioUsuarioId = (event) => {

@@ -6,7 +6,8 @@ import {
     CAMBIO_USUARIO_ID, 
     CAMBIO_TITULO, 
     GUARDAR,
-    ACTUALIZAR
+    ACTUALIZAR,
+    LIMPIAR
 } from "../types/tareasTypes";
 
 export const traerTodas = () => async (dispatch) => {
@@ -118,5 +119,32 @@ export const editar = (tarea_editada) => async (dispatch) => {
     dispatch({
         type: ACTUALIZAR,
         payload: actualizadas
+    })
+  }
+
+  export const eliminar = (tar_id) => async (dispatch) => {
+    dispatch({
+      type: CARGANDO,
+    })
+    try {
+      const respuesta = await axios.delete(
+        `https://jsonplaceholder.typicode.com/todos/${tar_id}`);
+        console.log(respuesta.data);
+        dispatch({
+          type: TRAER_TODAS,
+          payload: {}
+        })
+    } catch (error) {
+      console.log(error.message);
+      dispatch({
+        type: ERROR,
+        payload: 'Servicio no disponible'
+      })
+    }
+  }
+
+  export const limpiarFormulario = () => (dispatch) => {
+    dispatch({
+      type: LIMPIAR,
     })
   }

@@ -7,12 +7,19 @@ import Fatal from '../General/Fatal';
 import * as tareasActions from "../../actions/tareasActions";
 
 //Lo destructuro
-const { traerTodas, cambioCheck } = tareasActions;
+const { traerTodas, cambioCheck, eliminar } = tareasActions;
 
 class Tareas extends Component {
     componentDidMount() {
         if (!Object.keys(this.props.tareas).length) {
             this.props.traerTodas();
+        }
+    }
+    componentDidUpdate() {
+        const {tareas, cargando, traerTodas } = this.props;
+
+        if (!Object.keys(tareas).length && !cargando) {
+            traerTodas();
         }
     }
 
@@ -36,7 +43,7 @@ class Tareas extends Component {
         ))
     }
     ponerTareas = (usu_id) => {
-        const { tareas, cambioCheck } = this.props;
+        const { tareas, cambioCheck, eliminar } = this.props;
         const por_usuario = {
             ...tareas[usu_id]
         };
@@ -56,7 +63,10 @@ class Tareas extends Component {
                     Editar
                 </Link>
             </button>
-            <button className='m_left'>
+            <button 
+            className='m_left'
+            onClick={() => eliminar(tar_id)}
+            >
                 Eliminar
             </button>
             </div>
@@ -81,6 +91,7 @@ const mapStateToProps = ({tareasReducer}) => tareasReducer;
 const mapDispatchToProps = {
   traerTodas,
   cambioCheck,
+  eliminar,
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tareas);
