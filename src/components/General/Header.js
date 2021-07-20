@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Menu = (props) => (
-    <nav id="menu">
+const Header = (props) => (
+    <nav id="header">
         <Link to='/'>
             Usuarios
         </Link>
@@ -12,4 +12,4 @@ const Menu = (props) => (
     </nav>
 )
 
-export default Menu;
+export default Header;
