@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 125px;
+
+}
+.redes-container {
+  height: 80%;
+  background: #00a98e;
+}
+
+.credits-container {
+  height: 20%;
+  background: #005247;
+}
