@@ -3,14 +3,46 @@
   flex-direction: column;
   width: 100%;
   height: 125px;
-
 }
 .redes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 80%;
-  background: #00a98e;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+
+  color: var(--bg-color);
+  background: var(--second-color);
+}
+.redes-container img {
+  margin-top: 5px;
+  height: 35px;
+}
+
+.filter-color {
+  /*Para pasar de color HEXA usar: https://codepen.io/sosuke/pen/Pjoqqp  */
+  filter: invert(97%) sepia(1%) saturate(358%) hue-rotate(61deg) brightness(113%) contrast(95%);
 }
 
 .credits-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 20%;
-  background: #005247;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  color: var(--bg-color);
+  background: var(--main-color);
 }

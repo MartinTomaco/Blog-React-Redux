@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+:root{
+  --main-color: #005247;
+  --second-color: #00A98E;
+  --bg-color: #F8F8F8;
+  --black-color: #0F0F0F;
+
+}
 body {
   margin: 0;
+  background-color: var(--bg-color);
 }
 
 .main-container {
