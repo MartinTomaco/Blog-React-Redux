@@ -5,10 +5,14 @@ import '../../css/header.css'
 const Header = (props) => (
     <nav className="header">
         <Link to='/'>
-            Usuarios
+            <button className='headerButtons'>
+                 Users
+            </button>
         </Link>
         <Link to='/tareas'>
-            Tareas
+            <button className='headerButtons'>
+                Tasks
+            </button>
         </Link>
     </nav>
 )
