@@ -21,8 +21,8 @@
   background: var(--second-color);
 }
 .redes-container img {
-  margin-top: 5px;
-  height: 35px;
+  margin: 5px 5px 5px 5px;
+  height: 2.3rem;
 }
 
 .filter-color {

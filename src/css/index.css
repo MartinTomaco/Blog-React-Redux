@@ -1,32 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
-:root{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+:root {
   --main-color: #005247;
-  --second-color: #00A98E;
-  --bg-color: #F8F8F8;
-  --black-color: #0F0F0F;
-
+  --second-color: #00a98e;
+  --bg-color: #f8f8f8;
+  --black-color: #0f0f0f;
 }
 body {
   margin: 0;
   background-color: var(--bg-color);
 }
 
-.main-container {
+.total-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
 }
+.main-container {
+  height: 100%;
+  margin-top: 44px;
+  margin-left: 83px;
+  margin-bottom: 120px;
+}
+
+.main-container > h2 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 46px;
+  color: var(--main-color);
+}
 .tabla {
   width: 100%;
   text-align: left;
 }
-
-.tabla td {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.tabla thead {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 42px;
+  color: var(--main-color);
 }
 
+.tabla td {
+  width: 300px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 30px;
+  color: var(--black-color);
+
+}
 .center {
   text-align: center;
 }

@@ -11,7 +11,7 @@ const Tabla = (props) => {
         <td>{usuario.website}</td>
         <td>
           <Link to= {`/publicaciones/${key}`}>
-            <div className="eye-solid icon"></div>
+            <div className="eye-solid3 icon"></div>
           </Link>
         </td>
       </tr>
@@ -21,9 +21,9 @@ const Tabla = (props) => {
     <table className="tabla">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Enlace</th>
+          <th>Name</th>
+          <th>e-mail</th>
+          <th>Page</th>
         </tr>
       </thead>
       <tbody>{ponerFilas()}</tbody>

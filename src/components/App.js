@@ -9,7 +9,7 @@ import TareasGuardar from "./Tareas/Guardar";
 
 const App = () => (
   <BrowserRouter>
-    <div className="main-container">
+    <div className="total-container">
       <Header />
       <Route exact path="/" component={Usuarios} />
       <Route exact path="/tareas" component={Tareas} />
