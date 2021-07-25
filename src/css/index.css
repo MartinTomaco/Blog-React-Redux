@@ -14,17 +14,20 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+
 }
 .main-container {
-  height: 100%;
-  margin-top: 44px;
-  margin-left: 83px;
-  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 83px 120px 93px;
+}
+.users{
+  height: calc(100vh - 237px - 44px - 120px);
 }
 
+
 .main-container > h2 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   font-size: 2.4rem;
@@ -32,11 +35,14 @@ body {
   color: var(--main-color);
 }
 .tabla {
-  width: 100%;
+  align-self: center;
+  justify-self: center;
+
   text-align: left;
+  margin: 0 auto;
 }
 .tabla thead {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   font-size: 2rem;
@@ -45,15 +51,20 @@ body {
 }
 
 .tabla td {
-  width: 300px;
-  font-family: 'Roboto';
+  min-width: 340px;
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 30px;
   color: var(--black-color);
+}
+td:last-child {
+  /* Es para ajustar donde esta el ojo */
+  min-width: 25px;
 
 }
+
 .center {
   text-align: center;
 }
@@ -62,9 +73,34 @@ body {
   color: red;
 }
 
-.pub_titulo {
-  border-top: 1px solid black;
+.pub-cointainer {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid var(--main-color);
+  border-right: 3px solid var(--main-color);
   cursor: pointer;
+  background-color: #00a98e30;
+}
+
+.pub-cointainer h2 {
+
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: var(--black-color);
+}
+.pub-cointainer p {
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: var(--black-color);
 }
 
 li {

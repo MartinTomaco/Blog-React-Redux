@@ -2,7 +2,7 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  min-height: 112px;
+  height: 112px;
   background-color: var(--second-color);
 
   font-size: 20px;

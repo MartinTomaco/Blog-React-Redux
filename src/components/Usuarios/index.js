@@ -34,7 +34,7 @@ class Usuarios extends Component {
   
   render() {
     return(
-      <div className="main-container">
+      <div className="main-container users">
         <h2>Users:</h2>
         { this.ponerContenido()}
       </div>

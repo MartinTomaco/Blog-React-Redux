@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const Fatal = (props) => (
- <h2 className='center rojo'>
+ <h1 className='center rojo'>
      {props.mensaje}
- </h2>
+ </h1>
 )
 
 export default Fatal;

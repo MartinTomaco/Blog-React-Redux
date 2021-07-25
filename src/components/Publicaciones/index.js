@@ -52,7 +52,7 @@ class Publicaciones extends Component {
       return <Spinner />;
     }
     const nombre = usuariosReducer.usuarios[key].name;
-    return <h1>Publicaciones de {nombre}</h1>;
+    return <h2>Publicaciones de {nombre}</h2>;
   };
   ponerPublicaciones = () => {
     const {
@@ -86,7 +86,7 @@ class Publicaciones extends Component {
   mostrarInfo = (publicaciones, pub_key) =>
     publicaciones.map((publicacion, com_key) => (
       <div
-        className="pub_titulo"
+        className="pub-cointainer"
         key={publicacion.id}
         onClick={() =>
           this.mostrarComentarios(pub_key, com_key, publicacion.comentarios)
@@ -108,7 +108,7 @@ class Publicaciones extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="main-container">
         {this.ponerUsuario()}
         {this.ponerPublicaciones()}
       </div>
