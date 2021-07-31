@@ -1,0 +1,47 @@
+.saveTaskButton {
+  margin-bottom: 30px;
+  min-height: 58px;
+  width: 250px;
+
+  border-style: none;
+  border-radius: 29px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+
+  color: var(--bg-color);
+  background: var(--main-color);
+}
+.main-container > h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 46px;
+  color: var(--main-color);
+}
+
+.inputTask{
+  padding: 0.25em 0.5em;
+  margin-bottom: 30px;
+  min-height: 58px;
+  min-width: 320px;
+  width: 40%;
+
+  border: 3px solid var(--main-color);
+  border-radius: 14px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+  color: var(--black-color);
+  background-color: var(--bg-color);
+}
+.inputTask:focus {
+  outline: none;
+}

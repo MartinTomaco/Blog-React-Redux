@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Spinner from "../General/Spinner";
 import Fatal from "../General/Fatal";
 import { Redirect } from "react-router";
+import '../../css/guardar.css'
 
 import * as tareasActions from "../../actions/tareasActions";
 
@@ -84,23 +85,26 @@ class Guardar extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="main-container">
         {this.props.regresar ? <Redirect to='/tareas' /> : ''     
         }
-        <h1> Guardar Tareas</h1>
-        Usuario id:
+        <h2> Guardar Tareas</h2>
+        <h3>Usuario id:</h3>
         <input
+          className="inputTask"
           type="number"
           value={this.props.usuario_id}
           onChange={this.cambioUsuarioId}
         />
-        <br />
-        <br />
-        Título:
-        <input value={this.props.titulo} onChange={this.cambioTitulo} />
-        <br />
-        <br />
-        <button onClick={this.guardar} disabled={this.deshabilitar()}>
+        <h3>Título:</h3>
+        <input
+        className="inputTask"
+        value={this.props.titulo} 
+        onChange={this.cambioTitulo}
+        />
+        <br/>
+
+        <button className="saveTaskButton" onClick={this.guardar} disabled={this.deshabilitar()}>
           Guardar
         </button>
         {this.mostrarAccion()}
