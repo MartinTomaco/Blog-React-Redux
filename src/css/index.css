@@ -14,17 +14,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 .main-container {
   display: flex;
   flex-direction: column;
   padding: 44px 83px 120px 93px;
 }
-.users{
+.users {
   height: calc(100vh - 237px - 44px - 120px);
 }
-
 
 .main-container > h2 {
   font-family: "Roboto";
@@ -62,7 +60,6 @@ body {
 td:last-child {
   /* Es para ajustar donde esta el ojo */
   min-width: 25px;
-
 }
 
 .center {
@@ -75,6 +72,7 @@ td:last-child {
 
 .pub-cointainer {
   margin-bottom: 28px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   border-left: 3px solid var(--main-color);
@@ -84,35 +82,96 @@ td:last-child {
 }
 
 .pub-cointainer h2 {
-
-
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 1.6rem;
   line-height: 2rem;
   color: var(--black-color);
 }
+.pub-cointainer h2:first-letter {
+  text-transform: uppercase;
+}
 .pub-cointainer p {
-
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 2rem;
   color: var(--black-color);
 }
+.pub-cointainer p:first-letter {
+  text-transform: uppercase;
+}
 
 li {
   margin: 15px 0px 15px 0px;
 }
+.comment span:first-letter {
+  text-transform: uppercase;
+}
 
-.contenedor_tareas {
-  font-size: 20px;
+.addTaskButton {
+  margin-bottom: 30px;
+  min-height: 58px;
+  width: 250px;
+
+  border-style: none;
+  border-radius: 29px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+
+  color: var(--bg-color);
+  background: var(--main-color);
+}
+.tasks-container h2 {
+  color: var(--main-color);
+  font-family: Roboto;
+  font-size: 40.4814px;
+  line-height: 47px;
+}
+.list-container {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
   margin-left: 50px;
-  margin-bottom: 70px;
+  margin-bottom: 25px;
 }
 
 .m_left {
   margin-left: 20px;
+}
+
+.checkbox-container{
+  display: flex;
+  align-items: center;
+  margin: 2px;
+}
+input[type=checkbox]
+{
+  /* Doble-tamaño Checkboxes */
+  transform: scale(2);
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari y Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+.checkboxtexto{
+  margin-left: 20px;
+  font-size: 110%;
+  display: inline;
+}
+.checkboxtexto::first-letter{
+color: Var(--main-color);
+font-weight: 400;
+text-transform: uppercase;
 }
