@@ -163,10 +163,15 @@ input[type=checkbox]
   -webkit-transform: scale(2); /* Safari y Chrome */
   -o-transform: scale(2); /* Opera */
   padding: 10px;
+  outline:2px solid Var(--main-color);
+  outline-offset: -2px;
+   /* Para pasar de color HEXA usar: https://codepen.io/sosuke/pen/Pjoqqp  */
+  /* filter: invert(23%) sepia(19%) saturate(2937%) hue-rotate(132deg) brightness(97%) contrast(101%); */
 }
 
 .checkboxtexto{
   margin-left: 20px;
+  margin-right: 20px;
   font-size: 110%;
   display: inline;
 }
@@ -174,4 +179,8 @@ input[type=checkbox]
 color: Var(--main-color);
 font-weight: 400;
 text-transform: uppercase;
+}
+.filter-color__edit-delete {
+  /*Para pasar de color HEXA usar: https://codepen.io/sosuke/pen/Pjoqqp  */
+  filter: invert(23%) sepia(19%) saturate(2937%) hue-rotate(132deg) brightness(97%) contrast(101%);
 }

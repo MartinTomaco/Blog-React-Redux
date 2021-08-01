@@ -57,10 +57,18 @@ class Tareas extends Component {
         {por_usuario[tar_id].title}
         </span>
         <Link to={`/tareas/guardar/${usu_id}/${tar_id}`}>
-            <img src={editIcon} alt="editIcon"></img>
+            <img 
+            className="filter-color__edit-delete" 
+            src={editIcon} 
+            alt="editIcon"> 
+            </img>
         </Link>
         <Link onClick={() => eliminar(tar_id)}>
-            <img src={deleteIcon} alt="editIcon"></img>
+            <img 
+            className="filter-color__edit-delete" 
+            src={deleteIcon} 
+            alt="editIcon">
+            </img>
         </Link>
       </div>
     ));
