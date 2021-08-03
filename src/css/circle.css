@@ -1,4 +1,7 @@
-
+.img-container{
+    position: relative;
+    overflow: visible;
+}
 .bg-circle {
 
 position: absolute;
@@ -6,7 +9,7 @@ z-index: -1;
 height: 120vh;
 width: 120vh;
 left: 50%;
-top: -272px;
+top: -340px;
 border-radius: 50%;
 opacity: 0.3;
 object-fit: cover;

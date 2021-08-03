@@ -103,7 +103,6 @@ class Guardar extends Component {
         onChange={this.cambioTitulo}
         />
         <br/>
-
         <button className="saveTaskButton" onClick={this.guardar} disabled={this.deshabilitar()}>
           Guardar
         </button>

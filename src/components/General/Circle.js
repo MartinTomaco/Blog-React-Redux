@@ -3,7 +3,7 @@ import '../../css/circle.css'
 import bgCircle from '../../assets/bg-circle.jpg';
 
 const Circle = () => (
-    <figure >
+    <figure className="img-container" >
         <img 
         className="bg-circle" 
         src={bgCircle} 
